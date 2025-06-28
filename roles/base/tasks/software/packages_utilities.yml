@@ -9,7 +9,7 @@
       - iotop
       - mc
       - mosh
-      - neofetch
+#      - neofetch
       - net-tools
       - nmap
       - rsync
