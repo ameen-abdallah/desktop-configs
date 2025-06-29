@@ -1,8 +1,10 @@
 ---
-- hosts: localhost
+- name: Machine setup
+  hosts: localhost
   tags: always
   connection: local
   become: true
+  gather_facts: true
 
   pre_tasks:
     - name: pre-run | update package cache arch
