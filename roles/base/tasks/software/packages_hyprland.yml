@@ -59,8 +59,8 @@
     name: 
       - tofi
       - swww
-      - hyprpicker
-      - hyprlock
+      #- hyprpicker
+      #- hyprlock
       #- wlogout
       #- grimblast
       #- hypridle
