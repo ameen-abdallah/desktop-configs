@@ -1,0 +1,10 @@
+- name: system setup | prerequisits packages | install packages
+  tags: sound, control, fonts
+  package:
+    name:
+      - pipwire
+      - wireplumber
+      - pamixer
+      - brightnessctl
+      - ttf-cascadia-code-nerd ttf-cascadia-mono-nerd ttf-fira-code ttf-fira-mono ttf-fira-sans ttf-firacode-nerd ttf-iosevka-nerd ttf-iosevkaterm-nerd ttf-jetbrains-mono-nerd ttf-jetbrains-mono ttf-nerd-fonts-symbols ttf-nerd-fonts-symbols ttf-nerd-fonts-symbols-mono
+    state: latest
