@@ -1,10 +1,12 @@
 ---
 - name: Machine setup
-  hosts: workstation
+  hosts: localhost
   tags: always
   connection: local
   become: true
   gather_facts: true
+  vars_files:
+    - /vars/Archlinux.yml
 
   pre_tasks:
     - name: pre-run | update package cache arch
