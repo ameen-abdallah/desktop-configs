@@ -2,7 +2,7 @@
   tags: sound, control, fonts
   ansible.builtin.package:
     name:
-      - pipwire
+      - pipewire
       - wireplumber
       - pamixer
       - brightnessctl
