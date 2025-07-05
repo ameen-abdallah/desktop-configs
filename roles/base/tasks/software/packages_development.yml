@@ -1,4 +1,4 @@
-- name: system setup | development packages | install packages
+- name: System setup | development packages | install packages
   tags: dev,development,packages,python,ruby
   ansible.builtin.package:
     name:

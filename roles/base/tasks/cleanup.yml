@@ -1,4 +1,4 @@
-- name: Cleanup | remove ur_builder from sudoers
+- name: Cleanup | remove aur_builder from sudoers
   become: true
   ansible.builtin.lineinfile:
     path: /etc/sudoers.d/11-install-aur_builder

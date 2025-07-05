@@ -1,6 +1,6 @@
-- name: system setup | repositories | add ignored packages for archlinux hosts
+- name: System setup | repositories | add ignored packages for archlinux hosts
   tags: packages,repositories
-  lineinfile:
+  ansible.builtin.lineinfile:
       dest: /etc/pacman.conf
       regexp: "^#?IgnorePkg"
       line: "IgnorePkg   = ansible linux linux-headers linux-lts linux-lts-headers"

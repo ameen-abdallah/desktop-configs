@@ -1,6 +1,6 @@
-- name: system setup | prerequisits packages | install packages
+- name: System setup | prerequisits packages | install packages
   tags: sound, control, fonts
-  nsible.builtin.package:
+  ansible.builtin.package:
     name:
       - pipwire
       - wireplumber

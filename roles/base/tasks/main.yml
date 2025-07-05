@@ -42,5 +42,5 @@
       ansible.builtin.import_tasks: cleanup.yml
 
   rescue:
-    - name: Rescue task
+    - name: Print when errors
       ansible.builtin.set_fact: task_failed=true
