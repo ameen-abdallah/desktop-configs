@@ -24,7 +24,7 @@
       import_tasks: system_setup/scripts.yml
     
     - name: Cleanup
-      import_task: clanup.yml
+      import_tasks: clanup.yml
 
 - name: Rescue
   rescue:
