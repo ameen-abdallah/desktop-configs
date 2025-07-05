@@ -1,6 +1,6 @@
 # Load distro-specific variables
 - name: Including vars
-  ansible.builtin.import_tasks: "{{ ansible_distribution }}.yml"
+  ansible.builtin.import_tasks: "Archlinux.yml"
   tags: always
 
 - name: Starting main block
