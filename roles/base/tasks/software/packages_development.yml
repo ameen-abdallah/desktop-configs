@@ -1,19 +1,19 @@
 - name: system setup | development packages | install packages
   tags: dev,development,packages,python,ruby
-  package:
+  ansible.builtin.package:
     name:
       - git
-      - base-devel            
+      - base-devel
     state: latest
 
 - name: Clone yay
-  git:
+  ansible.builtin.git:
     repo: https://aur.archlinux.org/yay-bin.git
     dest: "{{ srcdir }}/yay"
     update: true
 
 - name: Build and install yay
-  command:
+  ansible.builtin.command:
     chdir: "{{ srcdir }}/yay"
     cmd: "makepkg -sfi --noconfirm"
     creates: /usr/bin/yay

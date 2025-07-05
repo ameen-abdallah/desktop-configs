@@ -3,8 +3,7 @@
   package:
     name:
       - fish
-      - nano
-      
+      - nano      
     state: latest
 
 - name: system setup | application packages | install packages | yay

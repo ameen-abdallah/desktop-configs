@@ -1,30 +1,46 @@
 # Load distro-specific variables
 - name: Including vars
-  include_vars: "{{ ansible_distribution }}.yml"
+  ansible.builtin.import_tasks: "{{ ansible_distribution }}.yml"
   tags: always
 
 - name: Starting main block
   block:
     # Set up the ansible environment
     - name: Set up the ansible environment
-      import_tasks: ansible_setup.yml
+      ansible.builtin.import_tasks: ansible_setup.yml
 
     # install software
-    - name: Install software
-      import_tasks: software/repositories.yml
-      import_tasks: software/packages_development.yml
-      import_tasks: software/packages_utilities.yml
+    - name: Configuring repos
+      ansible.builtin.import_tasks: software/repositories.yml
+
+    - name: Install software for development
+      ansible.builtin.import_tasks: software/packages_development.yml
+
+    - name: Install software prerequisites
+      ansible.builtin.import_tasks: software/packages_prerequisites.yml
+
+    - name: Install software utilities
+      ansible.builtin.import_tasks: software/packages_utilities.yml
+
+    - name: Install software applications
+      ansible.builtin.import_tasks: software/packages_applications.yml
+
 
     # Perform remaining tasks:
-    - name: Perform remaining tasks
-      import_tasks: system_setup/clock.yml
-      import_tasks: system_setup/cron.yml
-      import_tasks: system_setup/logging.yml
-      import_tasks: system_setup/openssh.yml
-      import_tasks: system_setup/scripts.yml
-    
-    - name: Cleanup
-      import_tasks: cleanup.yml
+    - name: Clock tasks
+      ansible.builtin.import_tasks: system_setup/clock.yml
+    - name: Cron tasks
+      ansible.builtin.import_tasks: system_setup/cron.yml
+    - name: Logging tasks
+      ansible.builtin.import_tasks: system_setup/logging.yml
+    - name: Openssh tasks
+      ansible.builtin.import_tasks: system_setup/openssh.yml
+    - name: Scripts tasks
+      ansible.builtin.import_tasks: system_setup/scripts.yml
 
-      rescue:
-        - set_fact: task_failed=true
+    - name: Cleanup
+      ansible.builtin.import_tasks: cleanup.yml
+
+  rescue:
+    - name: Rescue task
+      ansible.builtin.set_fact: task_failed=true
