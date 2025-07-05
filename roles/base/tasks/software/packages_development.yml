@@ -6,14 +6,14 @@
       - base-devel
     state: latest
 
-- name: Clone yay
-  ansible.builtin.git:
-    repo: https://aur.archlinux.org/yay-bin.git
-    dest: "{{ srcdir }}/yay"
-    update: true
+#- name: Clone yay
+#  ansible.builtin.git:
+#    repo: https://aur.archlinux.org/yay-bin.git
+#    dest: "{{ srcdir }}/yay"
+#    update: true
 
-- name: Build and install yay
-  ansible.builtin.command:
-    chdir: "{{ srcdir }}/yay"
-    cmd: "makepkg -sfi --noconfirm"
-    creates: /usr/bin/yay
+#- name: Build and install yay
+#  ansible.builtin.command:
+#    chdir: "{{ srcdir }}/yay"
+#    cmd: "makepkg -sfi --noconfirm"
+#    creates: /usr/bin/yay
