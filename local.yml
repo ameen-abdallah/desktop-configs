@@ -1,6 +1,6 @@
 ---
 - name: Machine setup
-  hosts: localhost
+  hosts: workstation
   tags: always
   connection: local
   become: true
