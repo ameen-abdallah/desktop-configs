@@ -12,6 +12,7 @@
       - net-tools
       - nmap
       - rsync
+      - tar
       - tmux
       - traceroute
       - wget

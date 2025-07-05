@@ -25,6 +25,9 @@
     - name: Install software applications
       ansible.builtin.import_tasks: software/packages_applications.yml
 
+    - name: Install hyprland
+      ansible.builtin.import_tasks: software/packages_hyprland.yml
+
 
     # Perform remaining tasks:
     - name: Clock tasks

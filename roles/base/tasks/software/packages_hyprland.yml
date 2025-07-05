@@ -1,0 +1,128 @@
+- name: system setup | sddm and kitty | install packages | pacman
+  tags: terminal, editors and so on
+  ansible.builtin.package:
+    name:
+      - sddm
+      - kitty
+    state: latest
+
+- name: Enable service sddm
+  ansible.builtin.systemd_service:
+    name: sddm
+    enabled: true
+
+- name: system setup | visual studio code | install packages | yay
+  kewlfft.aur.aur:
+    name: visual-studio-code-bin
+    state: latest
+  become: true
+  become_user: aur_builder
+
+- name: system setup | hyprland | install packages | pacman
+  tags: terminal, editors and so on
+  ansible.builtin.package:
+    name:
+      - hyprland
+      - xdg-desktop-portal-hyprland
+      - polkit-kde-agent
+      - dunst
+      - qt5-wayland
+      - qt6-wayland
+    state: latest
+
+# - name: Create a directory if it does not exist
+#   ansible.builtin.file:
+#     path: /home/ameen/.config/hypr/
+#     state: directory
+#     mode: '0755'
+
+# - name: Copy hyprland config
+#   ansible.builtin.copy:
+#     src: /home/ameen/simple-hyprland/configs/hypr/hyprland.conf
+#     dest: /home/ameen/.config/hypr/
+
+# - name: Copy dunst config
+#   ansible.builtin.copy:
+#     src: /home/ameen/simple-hyprland/configs/dunst
+#     dest: /home/ameen/.config/
+
+- name: system setup | sddm and kitty | install packages | pacman
+  tags: terminal, editors and so on
+  ansible.builtin.package:
+    name:
+      - waybar
+      - tofi
+      - cliphist
+      - swww
+      - hyprpicker
+      - hyprlock
+      - wlogout
+      - grimblast
+      - hypridle
+    state: latest
+
+# - name: Copy waybar config
+#   ansible.builtin.copy:
+#     src: /home/ameen/simple-hyprland/configs/waybar
+#     dest: /home/ameen/.config/
+
+# - name: Copy Tofi config
+#   ansible.builtin.copy:
+#     src: /home/ameen/simple-hyprland/configs/tofi
+#     dest: /home/ameen/.config/
+
+# - name: Copy sample wallpapers config
+#   ansible.builtin.copy:
+#     src: /home/ameen/.config/assets/backgrounds
+#     dest: /home/ameen/.config/assets/
+
+# - name: Copy sample wallpapers config
+#   ansible.builtin.copy:
+#     src: /home/ameen/simple-hyprland/assets/backgrounds
+#     dest: /home/ameen/.config/assets/
+
+# - name: Copy Hyprlock config
+#   ansible.builtin.copy:
+#     src: /home/ameen/simple-hyprland/configs/hypr/hyprlock.conf 
+#     dest: /home/ameen/.config/hypr/
+
+# - name: Copy Wlogout config
+#   ansible.builtin.copy:
+#     src: /home/ameen/simple-hyprland/configs/wlogout
+#     dest: /home/ameen/.config/
+
+# - name: Copy Wlogout assets
+#   ansible.builtin.copy:
+#     src: /home/ameen/simple-hyprland/assets/wlogout
+#     dest: /home/ameen/.config/assets/
+
+# - name: Copy Hypridle config
+#   ansible.builtin.copy:
+#     src: /home/ameen/simple-hyprland/configs/hypr/hypridle.conf 
+#     dest: /home/ameen/.config/hypr/
+
+- name: system setup | theming | install packages | pacman
+  tags: terminal, editors and so on
+  ansible.builtin.package:
+    name:
+      - nwg-look
+      - qt5ct
+      - qt6ct
+      - kvantum      
+    state: latest
+
+# - name: Extract foo.tgz into /var/lib/foo
+#   ansible.builtin.unarchive:
+#     src: foo.tgz
+#     dest: /var/lib/foo
+
+# - name: Extract foo.tgz into /var/lib/foo
+#   ansible.builtin.unarchive:
+#     src: 
+#     dest: /var/lib/foo
+
+# - name: Extract foo.tgz into /var/lib/foo
+#   ansible.builtin.unarchive:
+#     src: foo.tgz
+#     dest: /var/lib/foo
+
