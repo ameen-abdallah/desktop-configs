@@ -62,7 +62,7 @@
       - hyprpicker
       - hyprlock
       #- wlogout
-      - grimblast
+      #- grimblast
       #- hypridle
     state: latest
   become: true
