@@ -1,6 +1,6 @@
 - name: system setup | application packages | install packages | pacman
   tags: terminal, editors and so on
-  package:
+  nsible.builtin.package:
     name:
       - fish
       - nano      
