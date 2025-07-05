@@ -26,6 +26,5 @@
     - name: Cleanup
       import_tasks: cleanup.yml
 
-    - name: Rescue
       rescue:
       - set_fact: task_failed=true
