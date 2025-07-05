@@ -18,6 +18,3 @@ ruby_rake_package: ruby-rake
 sftp_path: /usr/lib/ssh/sftp-server
 sudo_group: wheel
 vim_package: gvim
-ansible_distribution: Archlinux
-#homedir: "{{ lookup('env','HOME') }}"
-#srcdir: "{{ homedir }}/.src"
