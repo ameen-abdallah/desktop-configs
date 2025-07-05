@@ -8,7 +8,8 @@
       - brightnessctl
       - ttf-cascadia-code-nerd
       - ttf-cascadia-mono-nerd
-      - ttf-fira-code ttf-fira-mono
+      - ttf-fira-code
+      - ttf-fira-mono
       - ttf-fira-sans
       - ttf-firacode-nerd
       - ttf-iosevka-nerd
