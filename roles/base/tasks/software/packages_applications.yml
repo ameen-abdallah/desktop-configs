@@ -6,11 +6,11 @@
       - nano      
     state: latest
 
-- name: Upgrade the system using yay, only act on AUR packages.
-  kewlfft.aur.aur:
-    upgrade: yes
-    use: yay
-    aur_only: yes
+#- name: Upgrade the system using yay, only act on AUR packages.
+#  kewlfft.aur.aur:
+#    upgrade: yes
+#    use: yay
+#    aur_only: yes
 
 - name: system setup | application packages | install packages | yay
   kewlfft.aur.aur:
