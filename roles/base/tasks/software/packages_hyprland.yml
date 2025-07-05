@@ -54,19 +54,19 @@
       - cliphist
     state: latest
 
-- name: system setup | mic. | install packages | yay
-  kewlfft.aur.aur:
-    name: 
-      - tofi
-      - swww
-      #- hyprpicker
-      #- hyprlock
-      #- wlogout
-      #- grimblast
-      #- hypridle
-    state: latest
-  become: true
-  become_user: aur_builder
+# - name: system setup | mic. | install packages | yay
+#   kewlfft.aur.aur:
+#     name: 
+#       - tofi
+#       - swww
+#       #- hyprpicker
+#       #- hyprlock
+#       #- wlogout
+#       #- grimblast
+#       #- hypridle
+#     state: latest
+#   become: true
+#   become_user: aur_builder
 
 # - name: Copy waybar config
 #   ansible.builtin.copy:
