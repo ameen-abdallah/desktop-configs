@@ -1,3 +1,8 @@
+- name: Update all non-AUR packages
+  ansible.builtin.package:
+    update_cache: yes
+    upgrade: yes
+
 - name: Ansible setup | ensure ansible is the latest version
   tags: ansible,ansible-setup
   ansible.builtin.package:
@@ -26,3 +31,4 @@
     create: true
     mode: 0644
     validate: 'visudo -cf %s'
+
