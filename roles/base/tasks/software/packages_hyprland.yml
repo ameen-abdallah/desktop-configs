@@ -61,7 +61,7 @@
       - swww
       - hyprpicker
       - hyprlock
-      - wlogout
+      #- wlogout
       - grimblast
       - hypridle
     state: latest
