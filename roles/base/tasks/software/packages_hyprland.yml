@@ -63,7 +63,7 @@
       - hyprlock
       #- wlogout
       - grimblast
-      - hypridle
+      #- hypridle
     state: latest
   become: true
   become_user: aur_builder
