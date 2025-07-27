@@ -46,4 +46,5 @@
 
   rescue:
     - name: Print when errors
-      ansible.builtin.set_fact: task_failed=true
+      ansible.builtin.set_fact:
+        task_failed: true

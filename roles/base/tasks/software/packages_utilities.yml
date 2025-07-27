@@ -1,7 +1,6 @@
 - name: System setup | utilities | install utility packages
   tags: packages,system,settings
   ansible.builtin.package:
-    state: latest
     name:
       - curl
       - "{{ dns_utils_package}}"
@@ -18,6 +17,7 @@
       - wget
       - whois
       - zsh
+    state: latest
 
 - name: System setup | utilities | install man-pages (arch)
   tags: packages,system,settings

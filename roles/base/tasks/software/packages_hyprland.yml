@@ -1,4 +1,4 @@
-- name: system setup | sddm and kitty | install packages | pacman
+- name: System setup | sddm and kitty | install packages | pacman
   tags: terminal, editors and so on
   ansible.builtin.package:
     name:
@@ -11,14 +11,14 @@
     name: sddm
     enabled: true
 
-- name: system setup | visual studio code | install packages | yay
+- name: System setup | visual studio code | install packages | yay
   kewlfft.aur.aur:
     name: visual-studio-code-bin
     state: latest
   become: true
   become_user: aur_builder
 
-- name: system setup | hyprland | install packages | pacman
+- name: System setup | hyprland | install packages | pacman
   tags: terminal, editors and so on
   ansible.builtin.package:
     name:

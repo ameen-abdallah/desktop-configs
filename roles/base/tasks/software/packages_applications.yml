@@ -1,9 +1,9 @@
-- name: system setup | application packages | install packages | pacman
+- name: System setup | application packages | install packages | pacman
   tags: terminal, editors and so on
   ansible.builtin.package:
     name:
       - fish
-      - nano      
+      - nano
     state: latest
 
 #- name: Upgrade the system using yay, only act on AUR packages.
@@ -12,7 +12,7 @@
 #    use: yay
 #    aur_only: yes
 
-- name: system setup | application packages | install packages | yay
+- name: System setup | application packages | install packages | yay
   kewlfft.aur.aur:
     name: brave-bin
     state: latest
