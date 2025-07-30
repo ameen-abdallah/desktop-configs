@@ -1,11 +1,11 @@
-- name: system setup | clock | start and enable systemd-timesyncd
+- name: System setup | clock | start and enable systemd-timesyncd
   tags: ntp,system settiings
-  service:
+  ansible.builtin.service:
     name: systemd-timesyncd
     state: started
     enabled: true
 
-- name: system setup | clock | set time zone
+- name: System setup | clock | set time zone
   tags: ntp,timezone,system setup
-  timezone:
+  ansible.builtin.timezone:
     name: "Europe/Copenhagen"

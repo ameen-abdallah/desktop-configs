@@ -13,20 +13,17 @@
     - name: Configuring repos
       ansible.builtin.import_tasks: software/repositories.yml
 
-    - name: Install software for development
-      ansible.builtin.import_tasks: software/packages_development.yml
+    - name: Install prerequisites
+      ansible.builtin.import_tasks: software/configuration_prerequisites.yml
 
-    - name: Install software prerequisites
-      ansible.builtin.import_tasks: software/packages_prerequisites.yml
+    - name: Install core
+      ansible.builtin.import_tasks: software/configuration_core.yml
 
-    - name: Install software utilities
-      ansible.builtin.import_tasks: software/packages_utilities.yml
+    - name: Install applications
+      ansible.builtin.import_tasks: software/configuration_applications.yml
 
-    - name: Install software applications
-      ansible.builtin.import_tasks: software/packages_applications.yml
-
-    - name: Install hyprland
-      ansible.builtin.import_tasks: software/packages_hyprland.yml
+    - name: Install utilities
+      ansible.builtin.import_tasks: software/configuration_utilities.yml
 
 
     # Perform remaining tasks:

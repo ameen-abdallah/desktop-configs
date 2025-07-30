@@ -1,6 +1,6 @@
-- name: system setup | scripts | copy image_prep.sh script
+- name: System setup | scripts | copy image_prep.sh script
   tags: scripts
-  copy:
+  ansible.builtin.copy:
     src: system_setup/image_prep.sh
     dest: /usr/local/bin/image_prep.sh
     owner: root

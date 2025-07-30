@@ -1,0 +1,36 @@
+  - name: System configuration | core packages | monitor configuration
+    ansible.builtin.lineinfile:
+      path: "{{ ansible_env.HOME }}/.config/hypr/hyprland.conf"
+      regex: "monitor=,preferred,auto,auto" 
+      line: |-
+        monitor=DP-1,1920x1080@60,0x0,1
+        monitor=HDMI-A-1,1920x1080@60,1920x0,1
+      state: present 
+
+  - name: System configuration | core packages | primary applications
+    ansible.builtin.lineinfile:
+      path: "{{ ansible_env.HOME }}/.config/hypr/hyprland.conf"
+      regex: "\\$terminal = kitty"
+      line: "$terminal = fish"
+      state: present
+
+  - name: System configuration | core packages | primary applications
+    ansible.builtin.lineinfile:
+      path: "{{ ansible_env.HOME }}/.config/hypr/hyprland.conf"
+      regex: "\\$fileManager = dolphin"
+      line: "$fileManager = dolphin"
+      state: present
+
+  - name: System configuration | core packages | primary applications
+    ansible.builtin.lineinfile:
+      path: "{{ ansible_env.HOME }}/.config/hypr/hyprland.conf"
+      regex: "\\$menu = wofi"
+      line: "$browser = brave-browser"
+      state: present
+
+  - name: System configuration | core packages | primary applications
+    ansible.builtin.lineinfile:
+      path: "{{ ansible_env.HOME }}/.config/hypr/hyprland.conf"
+      line: "$browser = brave-browser"
+      insertafter: "$editor = code"
+

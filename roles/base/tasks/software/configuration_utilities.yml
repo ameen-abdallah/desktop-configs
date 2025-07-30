@@ -3,7 +3,6 @@
   ansible.builtin.package:
     name:
       - curl
-      - "{{ dns_utils_package}}"
       - htop
       - iotop
       - mc
@@ -12,7 +11,6 @@
       - nmap
       - rsync
       - tar
-      - tmux
       - traceroute
       - wget
       - whois
@@ -22,8 +20,7 @@
 - name: System setup | utilities | install man-pages (arch)
   tags: packages,system,settings
   ansible.builtin.package:
-    state: latest
     name:
       - man-db
       - man-pages
-  when: ansible_distribution == "Archlinux"
+    state: latest

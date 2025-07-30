@@ -1,13 +1,13 @@
-- name: system setup | cron | install cron package
+- name: System setup | cron | install cron package
   tags: packages,cron
-  package:
+  ansible.builtin.package:
     name:
       - "{{ cron_package }}"
     state: latest
 
-- name: system setup | cron | start and enable cronie daemon
+- name: System setup | cron | start and enable cronie daemon
   tags: cron
-  service:
+  ansible.builtin.service:
     name: cronie
     state: started
     enabled: true
