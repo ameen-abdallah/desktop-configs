@@ -23,8 +23,8 @@
       - ttf-nerd-fonts-symbols-mono
     state: latest
 
-- name: Upgrade the system using yay, only act on AUR packages.
-  kewlfft.aur:
-    upgrade: yes
-    use: yay
-    aur_only: yes
+#- name: Upgrade the system using yay, only act on AUR packages.
+#  kewlfft.aur:
+#    upgrade: yes
+#    use: yay
+#    aur_only: yes
