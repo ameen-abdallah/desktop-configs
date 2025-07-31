@@ -8,6 +8,7 @@
       - wireplumber
       - pamixer
       - brightnessctl
+      - sddm
       - ttf-cascadia-code-nerd
       - ttf-cascadia-mono-nerd
       - ttf-fira-code
