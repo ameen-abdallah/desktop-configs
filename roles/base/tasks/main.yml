@@ -19,6 +19,9 @@
     - name: Install core
       ansible.builtin.import_tasks: software/configuration_core.yml
 
+    - name: Basic configuration
+      ansible.builtin.import_tasks: software/configuration_basic.yml
+
     - name: Install applications
       ansible.builtin.import_tasks: software/configuration_applications.yml
 
