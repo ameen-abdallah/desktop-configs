@@ -18,8 +18,8 @@
       path: "/home/{{ ansible_user }}/.config/hypr"
       state: directory
       mode: 0755
-      owner: {{ ansible_user }}
-      group: {{ ansible_user }}
+      owner: "{{ ansible_user }}"
+      group: "{{ ansible_user }}"
 
   - name: System configuration | core packages | copy hyprland config files
     tags: copy hyprland.conf    
