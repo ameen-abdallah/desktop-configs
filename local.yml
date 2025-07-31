@@ -1,6 +1,6 @@
 ---
 - name: Machine setup
-  hosts: all
+  hosts: localhost
   tags: always
   connection: local
   gather_facts: true
@@ -16,7 +16,7 @@
       when: ansible_distribution == "Archlinux"
 
 
-- hosts: All
+- hosts: localhost
   tags: base
   become: true
   roles:
