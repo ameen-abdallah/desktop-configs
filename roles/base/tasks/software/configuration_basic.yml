@@ -66,7 +66,7 @@
 
   - name: Insert a block of text before a specific pattern 
     blockinfile: 
-      path: /home/ameen/.config/hypr/hyprland.conf"
+      path: "/home/ameen/.config/hypr/hyprland.conf"
       block: | 
         # QT
         env = QT_QPA_PLATFORM,wayland;xcb
