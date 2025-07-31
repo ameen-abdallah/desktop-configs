@@ -9,6 +9,15 @@
         - dunst
       state: latest
 
+  - name: System configuration | core packages | create hyprland folder
+    tags: copy hyprland.conf    
+    ansible.builtin.file:
+      path: "/home/ameen/.config/hypr"
+      state: directory
+      mode: 0755
+      owner: ameen
+      group: ameen
+
   - name: System configuration | core packages | copy hyprland config files
     tags: copy hyprland.conf    
     ansible.builtin.copy:
