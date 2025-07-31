@@ -54,7 +54,7 @@
       exec-once=/usr/lib/polkit-kde-authentication-agent-1 # Polkit for privilege management      insertbefore: 'env = XCURSOR_SIZE,24'
       exec-once=/usr/bin/dunst
       exec-once=waybar
-    insertbefore: "exec-once = \\$terminal"
+    insertbefore: "# exec-once = \\$terminal"
 
 - name: Insert a block of text before a specific pattern
   ansible.builtin.blockinfile:
@@ -76,7 +76,7 @@
       env = XDG_CURRENT_DESKTOP,Hyprland
       env = XDG_SESSION_TYPE,wayland
       env = XDG_SESSION_DESKTOP,Hyprland
-    insertbefore: 'env = XCURSOR_SIZE,24'
+    insertafter: 'env = XCURSOR_SIZE,24'
 
 - name: System configuration | core packages | primary applications
   ansible.builtin.lineinfile:
