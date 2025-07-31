@@ -3,4 +3,4 @@ branch: master
 
 ansible_cron_minute: "*/5"
 ssh_port: 22
-ssh_users: "{{ ansible_user }}"
+ssh_users: "{{ username_on_the_host }}"
