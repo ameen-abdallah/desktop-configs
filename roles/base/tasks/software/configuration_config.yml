@@ -10,21 +10,21 @@
 - name: System configuration | core packages | primary applications
   ansible.builtin.lineinfile:
     path: '/home/{{ username_on_the_host.stdout }}/.config/hypr/hyprland.conf'
-    regex: '$terminal = kitty'
+    regex: "\\$terminal = kitty"
     line: '$terminal = ghostty'
     state: present
 
 - name: System configuration | core packages | primary applications
   ansible.builtin.lineinfile:
     path: '/home/{{ username_on_the_host.stdout }}/.config/hypr/hyprland.conf'
-    regex: '$fileManager = dolphin'
+    regex: "\\$fileManager = dolphin"
     line: '$fileManager = dolphin'
     state: present
 
 - name: System configuration | core packages | primary applications
   ansible.builtin.lineinfile:
     path: '/home/{{ username_on_the_host.stdout }}/.config/hypr/hyprland.conf'
-    regex: '$menu = wofi'
+    regex: "\\$menu = wofi"
     line: '$browser = brave'
     state: present
 
@@ -32,7 +32,7 @@
   ansible.builtin.lineinfile:
     path: '/home/{{ username_on_the_host.stdout }}/.config/hypr/hyprland.conf'
     line: '$editor = code'
-    insertafter: '$browser = brave'
+    insertafter: "\\$browser = brave"
     state: present
 
 - name: Enable sddm
@@ -54,7 +54,7 @@
       exec-once=/usr/lib/polkit-kde-authentication-agent-1 # Polkit for privilege management      insertbefore: 'env = XCURSOR_SIZE,24'
       exec-once=/usr/bin/dunst
       exec-once=waybar
-    insertbefore: 'exec-once = $terminal'
+    insertbefore: "exec-once = \\$terminal"
 
 - name: Insert a block of text before a specific pattern
   ansible.builtin.blockinfile:
@@ -102,6 +102,6 @@
 - name: System configuration | core packages | primary applications
   ansible.builtin.lineinfile:
     path: '/home/{{ username_on_the_host.stdout }}/.config/hypr/hyprland.conf'
-    regex: 'bind = $mainMod, Q, exec, $terminal'
+    regex: "bind = \\$mainMod, Q, exec, \\$terminal"
     line: 'bind = $mainMod, ENTER, exec, $terminal'
     state: present
