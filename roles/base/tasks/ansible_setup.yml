@@ -1,7 +1,7 @@
 - name: Update all non-AUR packages
   ansible.builtin.package:
-    update_cache: yes
-    upgrade: yes
+    update_cache: true
+    upgrade: true
 
 - name: Ansible setup | ensure ansible is the latest version
   tags: ansible,ansible-setup
@@ -32,7 +32,7 @@
     mode: 0644
     validate: 'visudo -cf %s'
 
-- name: get the username running the deploy
+- name: Get the username running the deploy
   become: false
   local_action: command whoami
   register: username_on_the_host
