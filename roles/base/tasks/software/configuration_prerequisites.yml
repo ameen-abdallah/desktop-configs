@@ -24,6 +24,14 @@
       - ttf-nerd-fonts-symbols-mono
     state: latest
 
+- name: Install yay using makepkg if it isn't installed already 
+  kewlfft.aur.aur: 
+    name: yay 
+    use: makepkg 
+    state: present 
+  become: yes 
+  become_user: aur_builder
+
 - name: Upgrade the system using yay, only act on AUR packages.
   kewlfft.aur.aur:
     upgrade: yes
