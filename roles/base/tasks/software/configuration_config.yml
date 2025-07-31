@@ -1,6 +1,6 @@
 - name: System configuration | core packages | monitor configuration
   ansible.builtin.lineinfile:
-    path: "/home/ameen/.config/hypr/hyprland.conf"
+    path: "/home/{{ ansible_user }}/.config/hypr/hyprland.conf"
     regex: "monitor=,preferred,auto,auto"
     line: |-
       monitor=DP-1,1920x1080@60,0x0,1
@@ -9,30 +9,30 @@
 
 - name: System configuration | core packages | primary applications
   ansible.builtin.lineinfile:
-    path: "/home/ameen/.config/hypr/hyprland.conf"
+    path: "/home/{{ ansible_user }}/.config/hypr/hyprland.conf"
     regex: "\\$terminal = kitty"
     line: "$terminal = ghostty"
     state: present
 
 - name: System configuration | core packages | primary applications
   ansible.builtin.lineinfile:
-    path: "/home/ameen/.config/hypr/hyprland.conf"
+    path: "/home/{{ ansible_user }}/.config/hypr/hyprland.conf"
     regex: "\\$fileManager = dolphin"
     line: "$fileManager = dolphin"
     state: present
 
 - name: System configuration | core packages | primary applications
   ansible.builtin.lineinfile:
-    path: "/home/ameen/.config/hypr/hyprland.conf"
+    path: "/home/{{ ansible_user }}/.config/hypr/hyprland.conf"
     regex: "\\$menu = wofi"
     line: "$browser = brave"
     state: present
 
 - name: System configuration | core packages | primary applications
   ansible.builtin.lineinfile:
-    path: "/home/ameen/.config/hypr/hyprland.conf"
+    path: "/home/{{ ansible_user }}/.config/hypr/hyprland.conf"
     line: "$editor = code"
-    insertafter: '\\$browser = brave-browser'
+    insertafter: '\\$browser = brave'
     state: present
 
 - name: Enable sddm
@@ -43,22 +43,22 @@
 
 - name: Set Fish as the default shell for the user
   user:
-    name: "{{ ansible_user_id }}"
+    name: "{{ ansible_user }}"
     shell: /usr/bin/fish
   become: yes
 
 - name: Insert a block of text before a specific pattern
   ansible.builtin.blockinfile:
-    path: "/home/ameen/.config/hypr/hyprland.conf"
+    path: "/home/{{ ansible_user }}/.config/hypr/hyprland.conf"
     block: |
       exec-once=/usr/lib/polkit-kde-authentication-agent-1 # Polkit for privilege management      insertbefore: 'env = XCURSOR_SIZE,24'
       exec-once=/usr/bin/dunst
       exec-once=waybar
-    insertbefore: '# exec-once = \\$terminal'
+    insertbefore: '# exec-once = $terminal'
 
 - name: Insert a block of text before a specific pattern
   ansible.builtin.blockinfile:
-    path: "/home/ameen/.config/hypr/hyprland.conf"
+    path: "/home/{{ ansible_user }}/.config/hypr/hyprland.conf"
     block: |
       # QT
       env = QT_QPA_PLATFORM,wayland;xcb
@@ -80,28 +80,28 @@
 
 - name: System configuration | core packages | primary applications
   ansible.builtin.lineinfile:
-    path: "/home/ameen/.config/hypr/hyprland.conf"
+    path: "/home/{{ ansible_user }}/.config/hypr/hyprland.conf"
     regex: "kb_layout = us"
     line: "kb_layout = dk"
     state: present
 
 - name: System configuration | core packages | primary applications
   ansible.builtin.lineinfile:
-    path: "/home/ameen/.config/hypr/hyprland.conf"
+    path: "/home/{{ ansible_user }}/.config/hypr/hyprland.conf"
     regex: "natural_scroll = false"
     line: "natural_scroll = true"
     state: present
 
 - name: System configuration | core packages | primary applications
   ansible.builtin.lineinfile:
-    path: "/home/ameen/.config/hypr/hyprland.conf"
+    path: "/home/{{ ansible_user }}/.config/hypr/hyprland.conf"
     regex: "workspace_swipe = false"
     line: "workspace_swipe = true"
     state: present
 
 - name: System configuration | core packages | primary applications
   ansible.builtin.lineinfile:
-    path: "/home/ameen/.config/hypr/hyprland.conf"
+    path: "/home/{{ ansible_user }}/.config/hypr/hyprland.conf"
     regex: "bind = \\$mainMod, Q, exec, \\$terminal"
     line: "bind = $mainMod, ENTER, exec, $terminal"
     state: present
