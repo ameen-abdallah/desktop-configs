@@ -10,7 +10,7 @@
       state: latest
 
   - name: System setup | application packages | install packages | yay
-    aur:
+    kewlfft.aur.aur:
       name: brave-bin
       state: latest
     become: true
