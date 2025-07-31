@@ -54,7 +54,7 @@
       exec-once=/usr/lib/polkit-kde-authentication-agent-1 # Polkit for privilege management      insertbefore: 'env = XCURSOR_SIZE,24'
       exec-once=/usr/bin/dunst
       exec-once=waybar
-    insertbefore: '# exec-once = $terminal'
+    insertbefore: 'exec-once = $terminal'
 
 - name: Insert a block of text before a specific pattern
   ansible.builtin.blockinfile:
