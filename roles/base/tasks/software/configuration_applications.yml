@@ -3,8 +3,10 @@
     ansible.builtin.package:
       name:
         - fish
+        - ghostty
         - nano
-        - neovim 
+        - neovim
+        - code
         - qt6-wayland
         - dunst
       state: latest
