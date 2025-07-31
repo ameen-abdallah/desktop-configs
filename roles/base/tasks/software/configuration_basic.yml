@@ -33,6 +33,7 @@
       path: "/home/ameen/.config/hypr/hyprland.conf"
       line: "$editor = code"
       insertafter: "$browser = brave-browser"
+      state: present
 
   - name: Enable sddm
     become: true
@@ -44,25 +45,29 @@
     ansible.builtin.lineinfile:
       path: "/home/ameen/.config/hypr/hyprland.conf"
       line: "exec-once=/usr/lib/polkit-kde-authentication-agent-1 # Polkit for privilege management"
-      insertbefore: "# exec-once = $terminal"
+      insertbefore: '# exec-once = $terminal'
+      state: present
 
   - name: System configuration | core packages | primary applications
     ansible.builtin.lineinfile:
       path: "/home/ameen/.config/hypr/hyprland.conf"
       line: "exec-once=/usr/bin/dunst"
-      insertbefore: "# exec-once = $terminal"
+      insertbefore: '# exec-once = $terminal'
+      state: present
 
   - name: System configuration | core packages | primary applications
     ansible.builtin.lineinfile:
       path: "/home/ameen/.config/hypr/hyprland.conf"
       line: "exec-once=waybar"
-      insertbefore: "# exec-once = $terminal"
+      insertbefore: '# exec-once = $terminal'
+      state: present
 
   - name: System configuration | core packages | primary applications
     ansible.builtin.lineinfile:
       path: "/home/ameen/.config/hypr/hyprland.conf"
       line: "exec-once=/usr/lib/polkit-kde-authentication-agent-1"
-      insertbefore: "# exec-once = $terminal"
+      insertbefore: '# exec-once = $terminal'
+      state: present
 
   - name: Insert a block of text before a specific pattern 
     blockinfile: 
