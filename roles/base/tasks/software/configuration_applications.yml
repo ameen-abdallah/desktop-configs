@@ -7,6 +7,7 @@
         - nano
         - neovim
         - code
+        - fuzzel
         - qt5-wayland
         - qt6-wayland
         - dunst
@@ -14,7 +15,9 @@
 
   - name: System setup | application packages | install packages | yay
     kewlfft.aur.aur:
-      name: brave-bin
+      name: 
+        - brave-bin
+        - raffi-bin
       state: latest
     become: true
     become_user: aur_builder
