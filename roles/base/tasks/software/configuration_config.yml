@@ -131,7 +131,7 @@
 - name: Insert a block of text before a specific pattern
   ansible.builtin.copy:
     dest: '/home/{{ username_on_the_host.stdout }}/.config/waybar/config.jsonc'
-    content:: |
+    content: |
       {
         "position": "top",
         "modules-left": ["hyprland/workspaces"],
