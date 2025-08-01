@@ -26,6 +26,7 @@
     ansible.builtin.copy:
       src: /usr/share/hypr/hyprland.conf
       dest: '/home/{{ username_on_the_host.stdout }}/.config/hypr/hyprland.conf'
+      force: true
 
   - name: System configuration | core packages | configuration files
     tags: hyprland
@@ -40,3 +41,4 @@
     ansible.builtin.copy:
       src: /etc/xdg/waybar
       dest: '/home/{{ username_on_the_host.stdout }}/.config/'
+      force: true

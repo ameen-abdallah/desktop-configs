@@ -9,24 +9,17 @@
 
 - name: System configuration | core packages | primary applications
   ansible.builtin.lineinfile:
-    path: '/home/{{ username_on_the_host.stdout }}/.config/hypr/hyprland.conf'
-    regex: "\\$terminal = kitty"
-    line: '$terminal = ghostty'
+    path: '/home/{{ username_on_the_host.stdout }}/.config/hypr/hyprland.conf'    
+    regex: "{{ item.regex }}"
+    line: "{{ item.line }}"
     state: present
-
-- name: System configuration | core packages | primary applications
-  ansible.builtin.lineinfile:
-    path: '/home/{{ username_on_the_host.stdout }}/.config/hypr/hyprland.conf'
-    regex: "\\$fileManager = dolphin"
-    line: '$fileManager = dolphin'
-    state: present
-
-- name: System configuration | core packages | primary applications
-  ansible.builtin.lineinfile:
-    path: '/home/{{ username_on_the_host.stdout }}/.config/hypr/hyprland.conf'
-    regex: "\\$menu = wofi"
-    line: '$browser = brave'
-    state: present
+  loop:
+    - line: '$terminal = ghostty'
+      regex: "\\$terminal = kitty"
+    - line: '$fileManager = dolphin'
+      regex: "\\$fileManager = dolphin"
+    - line: '$browser = brave'
+      regex: "\\$menu = wofi"
 
 - name: System configuration | core packages | primary applications
   ansible.builtin.lineinfile:
@@ -86,6 +79,30 @@
 
 - name: System configuration | core packages | primary applications
   ansible.builtin.lineinfile:
+    path: '/home/{{ username_on_the_host.stdout }}/.config/hypr/hyprland.conf'    
+    insertafter: '# Example binds'
+    line: "{{ item.line }}"
+    state: present
+  loop:
+    - line: 'bind = $mainMod, RETURN, exec, $terminal'
+    - line: 'bind = $mainMod, B, exec, $browser'
+    - line: 'bind = Ctrl, Escape, exec, killall waybar || waybar'
+
+
+- name: System configuration | core packages | primary applications
+  ansible.builtin.lineinfile:
+    path: '/home/{{ username_on_the_host.stdout }}/.config/hypr/hyprland.conf'    
+    regex: "{{ item.regex }}"
+    line: "{{ item.line }}"
+    state: present
+  loop:
+    - line: 'bind = $mainMod, M, fullscreen, 1'
+      regex: "bind = \\$mainMod, M, exit,"
+    - line: 'bind = $mainMod, Q, killactive,'
+      regex: "bind = \\$mainMod, Q, exec, \\$terminal"
+
+- name: System configuration | core packages | primary applications
+  ansible.builtin.lineinfile:
     path: '/home/{{ username_on_the_host.stdout }}/.config/hypr/hyprland.conf'
     regex: 'kb_layout = us'
     line: 'kb_layout = dk'
@@ -105,17 +122,4 @@
     line: 'workspace_swipe = true'
     state: present
 
-- name: System configuration | core packages | primary applications
-  ansible.builtin.lineinfile:
-    path: '/home/{{ username_on_the_host.stdout }}/.config/hypr/hyprland.conf'
-    regex: "bind = \\$mainMod, Q, exec, \\$terminal"
-    line: 'bind = $mainMod, ENTER, exec, $terminal'
-    state: present
-
-- name: System configuration | core packages | primary applications
-  ansible.builtin.lineinfile:
-    path: '/home/{{ username_on_the_host.stdout }}/.config/hypr/hyprland.conf'
-    insertafter: "bind = \\$mainMod, J, togglesplit, # dwindle"
-    line: 'bind = Ctrl, Escape, exec, killall waybar || waybar'
-    state: present
 
