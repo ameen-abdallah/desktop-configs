@@ -24,9 +24,12 @@
 - name: System configuration | core packages | primary applications
   ansible.builtin.lineinfile:
     path: '/home/{{ username_on_the_host.stdout }}/.config/hypr/hyprland.conf'
-    line: '$editor = code'
+    line: "{{ item.line }}"
     insertafter: "\\$browser = brave"
     state: present
+  loop:
+    - line: '$menu = fuzzel'
+    - line: '$editor = code'
 
 - name: Enable sddm
   become: true
@@ -86,6 +89,7 @@
   loop:
     - line: 'bind = $mainMod, RETURN, exec, $terminal'
     - line: 'bind = $mainMod, B, exec, $browser'
+    - line: 'bind = $mainMod, A, exec, $menu'
     - line: 'bind = Ctrl, Escape, exec, killall waybar || waybar'
 
 

@@ -41,4 +41,7 @@
     ansible.builtin.copy:
       src: /etc/xdg/waybar
       dest: '/home/{{ username_on_the_host.stdout }}/.config/'
+      mode: 0755
+      owner: '{{ username_on_the_host.stdout }}'
+      group: '{{ username_on_the_host.stdout }}'
       force: true
