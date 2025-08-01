@@ -111,3 +111,11 @@
     regex: "bind = \\$mainMod, Q, exec, \\$terminal"
     line: 'bind = $mainMod, ENTER, exec, $terminal'
     state: present
+
+- name: System configuration | core packages | primary applications
+  ansible.builtin.lineinfile:
+    path: '/home/{{ username_on_the_host.stdout }}/.config/hypr/hyprland.conf'
+    insertafter: "bind = \\$mainMod, J, togglesplit, # dwindle"
+    line: 'bind = Ctrl, Escape, exec, killall waybar || waybar'
+    state: present
+
