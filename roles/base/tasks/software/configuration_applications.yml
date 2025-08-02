@@ -11,6 +11,8 @@
         - qt5-wayland
         - qt6-wayland
         - dunst
+        - nwg-look
+        - kvantum
       state: latest
 
   - name: System setup | application packages | install packages | yay
