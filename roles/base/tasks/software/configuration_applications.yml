@@ -18,7 +18,7 @@
       name: 
         - brave-bin
         - raffi-bin
-        - sww
+        - swww
         - hyprlock
         - hypridle
       state: latest

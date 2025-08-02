@@ -179,4 +179,30 @@
     mode: 0755
     owner: '{{ username_on_the_host.stdout }}'
     group: '{{ username_on_the_host.stdout }}'
-    force: true   
+    force: true
+
+- name: Insert a block of text before a specific pattern
+  ansible.builtin.copy:
+    dest: '/home/{{ username_on_the_host.stdout }}/.config/fuzzel/fuzzel.ini'
+    content: |
+      dpi-aware=yes
+      font=RobotoMonoNerdFont-Thin:size=16
+      terminal=ghostty
+      width=50
+      layer=overlay
+      exit-on-keyboard-focus-loss=no
+      inner-pad=15
+      fields=filename,name
+
+      [colors]
+      background=282a36ff
+      text=f8f8f2ff
+      match=8be9fdff
+      selection-match=8be9fdff
+      selection=44475add
+      selection-text=f8f8f2ff
+      border=bd93f9ff
+    mode: 0755
+    owner: '{{ username_on_the_host.stdout }}'
+    group: '{{ username_on_the_host.stdout }}'
+    force: true
