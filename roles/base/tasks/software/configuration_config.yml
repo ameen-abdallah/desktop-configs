@@ -326,3 +326,15 @@
     owner: '{{ username_on_the_host.stdout }}'
     group: '{{ username_on_the_host.stdout }}'
     force: true
+
+- name: Insert a block of text before a specific pattern
+  ansible.builtin.blockinfile:
+    path: '/home/{{ username_on_the_host.stdout }}/.config/hypr/hyprland.conf'
+    block: |
+      windowrulev2 = opacity 0.90 0.90,class:^(Brave)$
+      windowrulev2 = opacity 0.90 0.90,class:^(code-oss)$
+      windowrulev2 = opacity 0.90 0.90,class:^(ghostty)$
+    marker: '# {mark} windowrulev2 | ANSIBLE MANAGED BLOCK'
+    prepend_newline: true
+    insertafter: "windowrule = suppressevent maximize, class"
+    state: present
