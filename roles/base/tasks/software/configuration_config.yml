@@ -95,7 +95,7 @@
     - line: 'bind = $mainMod, A, exec, $menu'
     - line: 'bind = Ctrl, Escape, exec, killall waybar || waybar'
     - line: "bind = $mainMod, L, exec, hyprlock"
-    - line: "bind = $mainMod, ESCAPE, exec, wlogout"
+    - line: "bind = CTRL, ALT, X, exec,systemctl logout"
 
 - name: System configuration | core packages | primary applications
   ansible.builtin.lineinfile:
