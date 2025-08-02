@@ -65,6 +65,13 @@
       owner: '{{ username_on_the_host.stdout }}'
       group: '{{ username_on_the_host.stdout }}'
 
+  - name: System configuration | core packages | create fuzzel folder
+    tags: create folder
+    ansible.builtin.file:
+      path: '/etc/sddm.conf.d'
+      state: directory
+
+
   - name: System configuration | core packages | copy hyprland config files
     tags: copy sddm conf file
     ansible.builtin.copy:
