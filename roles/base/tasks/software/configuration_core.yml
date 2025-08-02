@@ -64,3 +64,10 @@
       mode: 0755
       owner: '{{ username_on_the_host.stdout }}'
       group: '{{ username_on_the_host.stdout }}'
+
+  - name: System configuration | core packages | copy hyprland config files
+    tags: copy sddm conf file
+    ansible.builtin.copy:
+      src: /usr/lib/sddm/sddm.conf.d/default.conf
+      dest: '/etc/sddm.conf.d/default.conf'
+      force: true

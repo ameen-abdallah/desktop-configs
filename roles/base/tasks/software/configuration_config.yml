@@ -336,3 +336,10 @@
     prepend_newline: true
     insertafter: "windowrule = suppressevent maximize, class"
     state: present
+
+- name: System configuration | core packages | primary applications
+  ansible.builtin.lineinfile:
+    path: '/etc/sddm.conf.d/default.conf'
+    regex: 'Current='
+    line: 'Current=sugar-dark'
+    state: present

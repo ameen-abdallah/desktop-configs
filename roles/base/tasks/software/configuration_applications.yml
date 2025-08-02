@@ -23,6 +23,7 @@
         - swww
         - hyprlock
         - hypridle
+        - sddm-sugar-dark
       state: latest
     become: true
     become_user: aur_builder
