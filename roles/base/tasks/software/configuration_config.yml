@@ -95,7 +95,7 @@
     - line: 'bind = $mainMod, A, exec, $menu'
     - line: 'bind = Ctrl, Escape, exec, killall waybar || waybar'
     - line: "bind = $mainMod, L, exec, hyprlock"
-    - line: "bind = CTRL, ALT, X, exec, hyprctl dispatch exit"
+    - line: "bind = CTRL ALT, X, exec, hyprctl dispatch exit"
 
 - name: System configuration | core packages | primary applications
   ansible.builtin.lineinfile:
