@@ -55,3 +55,12 @@
       owner: '{{ username_on_the_host.stdout }}'
       group: '{{ username_on_the_host.stdout }}'
       force: true
+
+  - name: System configuration | core packages | create fuzzel folder
+    tags: create folder
+    ansible.builtin.file:
+      path: '/home/{{ username_on_the_host.stdout }}/.config/fuzzel'
+      state: directory
+      mode: 0755
+      owner: '{{ username_on_the_host.stdout }}'
+      group: '{{ username_on_the_host.stdout }}'
