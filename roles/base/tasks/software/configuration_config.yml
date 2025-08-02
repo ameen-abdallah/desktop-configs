@@ -50,7 +50,6 @@
       exec-once=/usr/lib/polkit-kde-authentication-agent-1 # Polkit for privilege management      insertbefore: 'env = XCURSOR_SIZE,24'
       exec-once=/usr/bin/dunst
       exec-once=waybar
-      exec-once=waybar
       exec-once = swww-daemon
       exec-once = swww img ~/.config/assets/backgrounds/still-body-water.jpg  --transition-fps 255 --transition-type outer --transition-duration 0.8
       exec-once = hypridle
