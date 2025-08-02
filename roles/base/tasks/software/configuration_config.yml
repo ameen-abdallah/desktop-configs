@@ -206,3 +206,123 @@
     owner: '{{ username_on_the_host.stdout }}'
     group: '{{ username_on_the_host.stdout }}'
     force: true
+
+- name: Insert a block of text before a specific pattern
+  ansible.builtin.copy:
+    dest: '/home/{{ username_on_the_host.stdout }}/.config/hypr/hypridle.conf'
+    content: |
+      general {
+          lock_cmd = pidof hyprlock || hyprlock       # avoid starting multiple hyprlock instances.
+          before_sleep_cmd = loginctl lock-session    # lock before suspend.
+          after_sleep_cmd = hyprctl dispatch dpms on  # to avoid having to press a key twice to turn on the display.
+      }
+
+      listener {
+          timeout = 60                                 # 1min.
+          on-timeout = brightnessctl -s set 5          # set monitor backlight to minimum, avoid 0 on OLED monitor.
+          on-resume = brightnessctl -r                 # monitor backlight restore.
+      }
+
+      listener {
+          timeout = 120                                 # 2min
+          on-timeout = loginctl lock-session            # lock screen when timeout has passed
+      }
+
+      listener {
+          timeout = 300                                 # 5min
+          on-timeout = hyprctl dispatch dpms off        # screen off when timeout has passed
+          on-resume = hyprctl dispatch dpms on          # screen on when activity is detected after timeout has fired.
+      }
+
+      listener {
+          timeout = 900                                # 30min
+          on-timeout = systemctl suspend                # suspend pc
+      }
+    mode: 0755
+    owner: '{{ username_on_the_host.stdout }}'
+    group: '{{ username_on_the_host.stdout }}'
+    force: true
+
+- name: Insert a block of text before a specific pattern
+  ansible.builtin.copy:
+    dest: '/home/{{ username_on_the_host.stdout }}/.config/hypr/hyprlock.conf'
+    content: |
+      background {
+          monitor =
+          path = ~/.config/assets/backgrounds/nature-landscape-with-lake-mountain.jpg
+      }
+
+      input-field {
+          monitor =
+          size = 200, 50
+          outline_thickness = 3
+          dots_size = 0.33 # Scale of input-field height, 0.2 - 0.8
+          dots_spacing = 0.15 # Scale of dots' absolute size, 0.0 - 1.0
+          dots_center = true
+          dots_rounding = -1 # -1 default circle, -2 follow input-field rounding
+          outer_color = rgb(a6adc8)
+          inner_color = rgb(11111b)
+          font_color = rgb(a6adc8)
+          fade_on_empty = true
+          fade_timeout = 1000 # Milliseconds before fade_on_empty is triggered.
+          placeholder_text = <i>Input Password...</i> # Text rendered in the input box when it's empty.
+          hide_input = false
+          rounding = -1 # -1 means complete rounding (circle/oval)
+          check_color = rgb(204, 136, 34)
+          fail_color = rgb(204, 34, 34) # if authentication failed, changes outer_color and fail message color
+          fail_text = <i>$FAIL <b>($ATTEMPTS)</b></i> # can be set to empty
+          fail_transition = 100 # transition time in ms between normal outer_color and fail_color
+          capslock_color = -1
+          numlock_color = -1
+          bothlock_color = -1 # when both locks are active. -1 means don't change outer color (same for above)
+          invert_numlock = false # change color if numlock is off
+          swap_font_color = false # see below
+          position = 0, -20
+          halign = center
+          valign = center
+      }
+
+      label {
+          monitor =
+          text = cmd[update:1000] echo "$TIME"
+          color = rgba(a6adc8)
+          font_size = 55
+          font_family = Fira Semibold
+          position = -100, 40
+          halign = right
+          valign = bottom
+          shadow_passes = 5
+          shadow_size = 10
+      }
+
+      label {
+          monitor =
+          text = Hello
+          color = rgba(a6adc8)
+          font_size = 20
+          font_family = Fira Semibold
+          position = -100, 160
+          halign = right
+          valign = bottom
+          shadow_passes = 5
+          shadow_size = 10
+      }
+
+      image {
+          monitor =
+          path = ~/.config/assets/backgrounds/nature-landscape-with-lake-mountain.jpg
+          size = 280 # lesser side if not 1:1 ratio
+          rounding = -1 # negative values mean circle
+          border_size = 4
+          border_color = rgb(a6adc8)
+          rotate = 0 # degrees, counter-clockwise
+          reload_time = -1 # seconds between reloading, 0 to reload with SIGUSR2
+      #    reload_cmd =  # command to get new path. if empty, old path will be used. don't run "follow" commands like tail -F
+          position = 0, 200
+          halign = center
+          valign = center
+      }
+    mode: 0755
+    owner: '{{ username_on_the_host.stdout }}'
+    group: '{{ username_on_the_host.stdout }}'
+    force: true
