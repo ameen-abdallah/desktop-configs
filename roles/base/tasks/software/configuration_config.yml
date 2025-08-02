@@ -9,7 +9,7 @@
 
 - name: System configuration | core packages | primary applications
   ansible.builtin.lineinfile:
-    path: '/home/{{ username_on_the_host.stdout }}/.config/hypr/hyprland.conf'    
+    path: '/home/{{ username_on_the_host.stdout }}/.config/hypr/hyprland.conf'
     regex: "{{ item.regex }}"
     line: "{{ item.line }}"
     state: present
@@ -50,6 +50,10 @@
       exec-once=/usr/lib/polkit-kde-authentication-agent-1 # Polkit for privilege management      insertbefore: 'env = XCURSOR_SIZE,24'
       exec-once=/usr/bin/dunst
       exec-once=waybar
+      exec-once=waybar
+      exec-once = swww-daemon
+      exec-once = swww img ~/.config/assets/backgrounds/still-body-water.jpg  --transition-fps 255 --transition-type outer --transition-duration 0.8
+      exec-once = hypridle
     marker: '# {mark} Exec once | ANSIBLE MANAGED BLOCK'
     prepend_newline: true
     insertafter: "# exec-once = waybar \\& hyprpaper \\& firefox"
@@ -91,7 +95,8 @@
     - line: 'bind = $mainMod, B, exec, $browser'
     - line: 'bind = $mainMod, A, exec, $menu'
     - line: 'bind = Ctrl, Escape, exec, killall waybar || waybar'
-
+    - line: "bind = $mainMod, L, exec, hyprlock"
+    - line: "bind = $mainMod, ESCAPE, exec, wlogout"
 
 - name: System configuration | core packages | primary applications
   ansible.builtin.lineinfile:

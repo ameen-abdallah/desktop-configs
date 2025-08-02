@@ -45,3 +45,13 @@
       owner: '{{ username_on_the_host.stdout }}'
       group: '{{ username_on_the_host.stdout }}'
       force: true
+
+  - name: System configuration | core packages | copy background images files
+    tags: copy
+    ansible.builtin.copy:
+      src: ../../assets/backgrounds
+      dest: '/home/{{ username_on_the_host.stdout }}/.config/assets'
+      mode: 0755
+      owner: '{{ username_on_the_host.stdout }}'
+      group: '{{ username_on_the_host.stdout }}'
+      force: true

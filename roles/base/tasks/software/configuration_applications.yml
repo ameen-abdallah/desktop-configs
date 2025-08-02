@@ -18,6 +18,10 @@
       name: 
         - brave-bin
         - raffi-bin
+        - sww
+        - hyprlock
+        - hypridle
+        - wlogout
       state: latest
     become: true
     become_user: aur_builder
