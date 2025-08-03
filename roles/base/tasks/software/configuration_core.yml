@@ -71,10 +71,22 @@
       path: '/etc/sddm.conf.d'
       state: directory
 
-
   - name: System configuration | core packages | copy hyprland config files
     tags: copy sddm conf file
     ansible.builtin.copy:
       src: /usr/lib/sddm/sddm.conf.d/default.conf
       dest: '/etc/sddm.conf.d/default.conf'
+      force: true
+
+  - name: System configuration | core packages | create dunst folder
+    tags: create folder
+    ansible.builtin.file:
+      path: '/.config/dunst'
+      state: directory
+
+  - name: System configuration | core packages | copy dunst files
+    tags: copy dunst conf file
+    ansible.builtin.copy:
+      src: /etc/dunst/dunstrc
+      dest: '/etc/dunst/dunstrc'
       force: true

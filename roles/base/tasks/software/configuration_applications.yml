@@ -11,6 +11,7 @@
         - qt5-wayland
         - qt6-wayland
         - dunst
+        - libnotify
         - nwg-look
         - kvantum
       state: latest
@@ -24,6 +25,7 @@
         - hyprlock
         - hypridle
         - sddm-sugar-dark
+        - signal-desktop
       state: latest
     become: true
     become_user: aur_builder
