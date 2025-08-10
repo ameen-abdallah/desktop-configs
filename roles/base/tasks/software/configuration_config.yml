@@ -343,3 +343,10 @@
     regex: 'Current='
     line: 'Current=sugar-dark'
     state: present
+
+- name: System configuration | core packages | primary applications
+  ansible.builtin.lineinfile:
+    path: '/.config/fish/config.fish'
+    insetafter: '# Commands'
+    line: 'fastfetch'
+    state: present
