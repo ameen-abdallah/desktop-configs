@@ -346,7 +346,7 @@
 
 - name: System configuration | core packages | primary applications
   ansible.builtin.lineinfile:
-    path: '/.config/fish/config.fish'
+    path: '.config/fish/config.fish'
     insertafter: '# Commands'
     line: 'fastfetch'
     state: present
