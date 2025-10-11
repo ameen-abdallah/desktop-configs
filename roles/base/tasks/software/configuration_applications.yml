@@ -6,7 +6,6 @@
         - ghostty
         - nano
         - neovim
-        - code
         - fuzzel
         - qt5-wayland
         - qt6-wayland
@@ -22,6 +21,7 @@
     kewlfft.aur.aur:
       name: 
         - brave-bin
+        - visual-studio-code-bin
         - raffi-bin
         - swww
         - hyprlock
