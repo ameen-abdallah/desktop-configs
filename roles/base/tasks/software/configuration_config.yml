@@ -249,7 +249,7 @@
     content: |
       background {
           monitor =
-          path = ~/.config/assets/backgrounds/nature-landscape-with-lake-mountain.jpg
+          path = ~/.config/assets/backgrounds/medium-vecteezy_sea-background-with-turquoise-water-and-light-sand-nature_49939488_medium.jpg
       }
 
       input-field {
