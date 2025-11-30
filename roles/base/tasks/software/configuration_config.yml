@@ -14,8 +14,8 @@
     line: "{{ item.line }}"
     state: present
   loop:
-    - line: '$terminal = ghostty'
-      regex: "\\$terminal = kitty"
+    - line: '$terminal = kitty'
+      regex: "\\$terminal = ghostty"
     - line: '$fileManager = dolphin'
       regex: "\\$fileManager = dolphin"
     - line: '$browser = brave'
@@ -187,7 +187,7 @@
     content: |
       dpi-aware=yes
       font=RobotoMonoNerdFont-Thin:size=16
-      terminal=ghostty
+      terminal=kitty
       width=50
       layer=overlay
       exit-on-keyboard-focus-loss=no
