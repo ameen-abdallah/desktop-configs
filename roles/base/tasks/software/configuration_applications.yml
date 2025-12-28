@@ -15,6 +15,7 @@
         - kvantum
         - fastfetch
         - bind
+        - pavucontrol
       state: latest
 
   - name: System setup | application packages | install packages | yay
