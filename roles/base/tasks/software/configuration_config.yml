@@ -19,7 +19,7 @@
     - line: '$fileManager = dolphin'
       regex: "\\$fileManager = dolphin"
     - line: '$browser = brave'
-      regex: "\\$menu"
+      regex: "\\$menu = hyprlauncher"
 
 - name: System configuration | core packages | primary applications
   ansible.builtin.lineinfile:
