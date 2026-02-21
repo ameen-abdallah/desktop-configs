@@ -331,7 +331,7 @@
   ansible.builtin.blockinfile:
     path: '/home/{{ username_on_the_host.stdout }}/.config/hypr/hyprland.conf'
     block: |
-      windowrule = opacity 1.0 0.80, class:^(.*)   
+      windowrule = match:class .*, opacity 1.0 0.80      
     marker: '# {mark} windowrule | ANSIBLE MANAGED BLOCK'
     prepend_newline: true
     insertafter: "windowrule = suppressevent maximize, class"
