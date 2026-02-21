@@ -105,7 +105,7 @@
     state: present
   loop:
     - line: 'bind = $mainMod, M, fullscreen, 1'
-      regex: "bind = \\$mainMod, M, exit,"
+      regex: "bind = \\$mainMod, M,"
     - line: 'bind = $mainMod, Q, killactive,'
       regex: "bind = \\$mainMod, Q, exec, \\$terminal"
     - line: 'bind = $mainMod, V, exec, code'
